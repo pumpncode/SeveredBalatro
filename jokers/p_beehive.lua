@@ -1,6 +1,10 @@
 SMODS.Joker {
 	key = "beehive",
-	config = { extra = { rounds = 3 } },
+	config = {
+		extra = {
+			rounds = 3,
+		},
+	},
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.rounds } }
 	end,
@@ -45,12 +49,20 @@ SMODS.Joker {
 				change_shop_size(1)
 
 				return {
-					message = localize({ type = "variable", key = "svrd_shop_inc", vars = { 1 } }),
+					message = localize({
+						type = "variable",
+						key = "svrd_shop_inc",
+						vars = { 1 },
+					}),
 					colour = G.C.MULT,
 				}
 			else
 				return {
-					message = localize({ type = "variable", key = "svrd_remaining", vars = { card.ability.extra.rounds } }),
+					message = localize({
+						type = "variable",
+						key = "svrd_remaining",
+						vars = { card.ability.extra.rounds },
+					}),
 					colour = G.C.FILTER,
 				}
 			end

@@ -1,9 +1,11 @@
 SMODS.Joker {
 	key = "dylang",
-	config = { extra = {
-		x_chips = 1.2,
-		is_mdr_member = true,
-	}},
+	config = {
+		extra = {
+			x_chips = 1.2,
+			is_mdr_member = true,
+		},
+	},
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.x_chips } }
 	end,
@@ -14,12 +16,19 @@ SMODS.Joker {
 	-- unlocked = true,
 	-- discovered = true,
 	calculate = function(self, card, context)
-		if context.individual and context.cardarea == G.play
-			and not context.other_card.debuff and IsScary(context.other_card:get_id()) then
+		if context.individual
+			and context.cardarea == G.play
+			and not context.other_card.debuff
+			and IsScary(context.other_card:get_id())
+		then
 				return {
-					message = localize({ type = "variable", key = "svrd_mult", vars = { card.ability.extra.x_chips } }),
+					message = localize({
+						type = "variable",
+						key = "svrd_mult",
+						vars = { card.ability.extra.x_chips },
+					}),
 					colour = G.C.CHIPS,
-					card = context.other_card,
+					message_card = context.other_card,
 					Xchip_mod = card.ability.extra.x_chips,
 				}
 		end

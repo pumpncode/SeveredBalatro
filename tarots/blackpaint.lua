@@ -1,6 +1,6 @@
 SMODS.Consumable({
 	set = "Tarot",
-	key = "blackpaint", 
+	key = "blackpaint",
     atlas = "svrd_atlas",
 	pos = { x = 4, y = 5 },
 	config = { mod_conv = "m_svrd_goo", max_highlighted = 2 },

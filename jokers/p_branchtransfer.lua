@@ -1,6 +1,10 @@
 SMODS.Joker {
 	key = "branchtransfer",
-	config = { extra = { rounds = 3 } },
+	config = {
+		extra = {
+			rounds = 3,
+		},
+	},
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.rounds } }
 	end,
@@ -45,12 +49,20 @@ SMODS.Joker {
 				G.jokers.config.card_limit = G.jokers.config.card_limit + 1
 
 				return {
-					message = localize({ type = "variable", key = "svrd_jokers_inc", vars = { 1 } }),
+					message = localize({
+						type = "variable",
+						key = "svrd_jokers_inc",
+						vars = { 1 },
+					}),
 					colour = G.C.BLACK,
 				}
 			else
 				return {
-					message = localize({ type = "variable", key = "svrd_remaining", vars = { card.ability.extra.rounds } }),
+					message = localize({
+						type = "variable",
+						key = "svrd_remaining",
+						vars = { card.ability.extra.rounds },
+					}),
 					colour = G.C.FILTER,
 				}
 			end

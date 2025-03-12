@@ -1,12 +1,17 @@
 SMODS.Joker {
 	key = "petey",
-	config = { extra = {
-		mult = 25,
-		rounds = 3,
-		is_mdr_member = true,
-	}},
+	config = {
+		extra = {
+			mult = 25,
+			rounds = 3,
+			is_mdr_member = true,
+		},
+	},
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.mult, card.ability.extra.rounds } }
+		return { vars = {
+			card.ability.extra.mult,
+			card.ability.extra.rounds,
+		}}
 	end,
 	rarity = 1,
 	atlas = "svrd_atlas",
@@ -18,7 +23,11 @@ SMODS.Joker {
 		if context.joker_main then
 			return {
 				mult_mod = card.ability.extra.mult,
-				message = localize { type = "variable", key = "a_mult", vars = { card.ability.extra.mult } }
+				message = localize({
+					type = "variable",
+					key = "a_mult",
+					vars = { card.ability.extra.mult },
+				}),
 			}
 		end
 		if
@@ -58,7 +67,11 @@ SMODS.Joker {
 				}
 			else
 				return {
-					message = localize({ type = "variable", key = "svrd_remaining", vars = { card.ability.extra.rounds } }),
+					message = localize({
+						type = "variable",
+						key = "svrd_remaining",
+						vars = { card.ability.extra.rounds },
+					}),
 					colour = G.C.FILTER,
 				}
 			end

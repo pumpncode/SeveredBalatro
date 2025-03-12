@@ -1,6 +1,10 @@
 SMODS.Joker {
 	key = "overtimecontingency",
-	config = { extra = { rounds = 3 } },
+	config = {
+		extra = {
+			rounds = 3,
+		},
+	},
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.rounds } }
 	end,
@@ -45,12 +49,20 @@ SMODS.Joker {
 				G.hand:change_size(1)
 
 				return {
-					message = localize({ type = "variable", key = "svrd_hand_size_inc", vars = { 1 } }),
+					message = localize({
+						type = "variable",
+						key = "svrd_hand_size_inc",
+						vars = { 1 },
+					}),
 					colour = G.C.FILTER,
 				}
 			else
 				return {
-					message = localize({ type = "variable", key = "svrd_remaining", vars = { card.ability.extra.rounds } }),
+					message = localize({
+						type = "variable",
+						key = "svrd_remaining",
+						vars = { card.ability.extra.rounds },
+					}),
 					colour = G.C.FILTER,
 				}
 			end

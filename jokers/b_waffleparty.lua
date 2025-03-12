@@ -1,6 +1,10 @@
 SMODS.Joker {
 	key = "waffleparty",
-	config = { extra = { gold = 5 }},
+	config = {
+		extra = {
+			gold = 5,
+		},
+	},
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.gold } }
 	end,
@@ -11,7 +15,10 @@ SMODS.Joker {
 	-- unlocked = true,
 	-- discovered = true,
 	calculate = function(self, card, context)
-		if context.end_of_round and not context.individual and not context.repetition then
+		if context.end_of_round
+			and not context.individual
+			and not context.repetition
+		then
 			for i = 1, #G.jokers.cards do
 				local jkr = G.jokers.cards[i]
 				if jkr.config.center.rarity == "svrd_temper" then

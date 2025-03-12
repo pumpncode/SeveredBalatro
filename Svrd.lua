@@ -55,6 +55,10 @@ function IsScary(number) return has_value(scary_nums, number) end
 function IsHappy(number) return has_value(happy_nums, number) end
 function IsMdrMember(joker_card) return _.get(joker_card, { "ability", "extra", "is_mdr_member" }, false) end
 
+function CheckOdds(seed, odds, probabilities)
+    return pseudorandom(seed) < probabilities / odds
+end
+
 local mod_path = "" .. SMODS.current_mod.path
 local function load_folder(folder)
 	local files = NFS.getDirectoryItems(mod_path .. folder)
@@ -67,4 +71,3 @@ load_folder("enhancements")
 load_folder("tarots")
 load_folder("jokers")
 load_folder("spectrals")
-

@@ -1,24 +1,24 @@
 SMODS.Joker {
 	key = "fingertrap",
-	config = { extra = { mult = 4 } },
+	config = { extra = { } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.mult } }
 	end,
-	rarity = 3,
+	rarity = 2,
 	atlas = "svrd_atlas",
 	pos = { x = 0, y = 1 },
 	cost = 10,
 	blueprint_compat = false,
 }
 
--- From Ortalab
+-- From ORTALAB scenic view
 local get_straight_ref = get_straight
 function get_straight(hand)
     if not next(SMODS.find_card("j_svrd_fingertrap")) then return get_straight_ref(hand) end
 
     local ret = {}
-	local four_fingers = next(SMODS.find_card('j_four_fingers'))
-	local can_skip = next(SMODS.find_card('j_shortcut')) or next(SMODS.find_card("j_svrd_fingertrap"))
+	local four_fingers = next(SMODS.find_card("j_four_fingers"))
+	local can_skip = next(SMODS.find_card("j_shortcut"))
 	if #hand < (5 - (four_fingers and 1 or 0)) then return ret end
 	local t = {}
 	local RANKS = {}
@@ -32,7 +32,7 @@ function get_straight(hand)
     local straight_pairs = {}
     for k,v in pairs(RANKS) do
         local total_count = 0
-        for i,j in pairs(RANKS[k]) do
+        for _,_ in pairs(RANKS[k]) do
             total_count = total_count + 1
         end
         if total_count == 2 then
@@ -50,7 +50,7 @@ function get_straight(hand)
 		end
 	end
 	local init_vals = {}
-	for i, v in ipairs(vals) do
+	for _, v in ipairs(vals) do
 		init_vals[v] = true
 	end
 	if not next(vals) then table.insert(vals, 'Ace') end
@@ -66,13 +66,13 @@ function get_straight(hand)
 		i = i + 1
 		if br or (i > #SMODS.Rank.obj_buffer + 1) then break end
 		if not next(vals) then break end
-		for i, val in ipairs(vals) do
+		for _, val in ipairs(vals) do
 			if init_vals[val] and not initial then br = true end
 			if RANKS[val] then
 				straight_length = straight_length + 1
                 if straight_pairs[val] then straight_length = straight_length + 1 end
 				skipped_rank = false
-				for ii, vv in ipairs(RANKS[val]) do
+				for _, vv in ipairs(RANKS[val]) do
 					t[#t + 1] = vv
 				end
 				vals = SMODS.Ranks[val].next
@@ -83,8 +83,8 @@ function get_straight(hand)
 		end
 		if not end_iter then
 			local new_vals = {}
-			for i, val in ipairs(vals) do
-				for ii, r in ipairs(SMODS.Ranks[val].next) do
+			for _, val in ipairs(vals) do
+				for _, r in ipairs(SMODS.Ranks[val].next) do
 					table.insert(new_vals, r)
 				end
 			end

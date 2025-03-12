@@ -1,8 +1,16 @@
 SMODS.Joker {
 	key = "svrdfloor",
-	config = { extra = { xmult = 1, xmult_gain = 0.1 } },
+	config = {
+		extra = {
+			xmult = 1,
+			xmult_gain = 0.1,
+		},
+	},
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.xmult_gain, card.ability.extra.xmult } }
+		return { vars = {
+			card.ability.extra.xmult_gain,
+			card.ability.extra.xmult,
+		}}
 	end,
 	rarity = 2,
 	atlas = "svrd_atlas",
@@ -11,21 +19,25 @@ SMODS.Joker {
 	-- unlocked = true,
 	-- discovered = true,
     calculate = function(self, card, context)
-        if context.cards_destroyed then
-			if not context.blueprint and #context.glass_shattered > 0 then
-				UpgradeSvrdFloor(card, #context.glass_shattered)
-			end
-        elseif context.remove_playing_cards then
-			if not context.blueprint and #context.removed > 0 then
-				UpgradeSvrdFloor(card, #context.removed)
-			end
-        elseif context.cardarea == G.jokers and context.joker_main then
+		if context.cards_destroyed
+			and not context.blueprint
+			and #context.glass_shattered > 0
+		then
+			UpgradeSvrdFloor(card, #context.glass_shattered)
+        elseif context.remove_playing_cards
+			and not context.blueprint
+			and #context.removed > 0
+		then
+			UpgradeSvrdFloor(card, #context.removed)
+        elseif context.cardarea == G.jokers
+			and context.joker_main
+		then
             return {
 				colour = G.C.MULT,
                 message = localize({
-					type="variable",
-					key="a_xmult",
-					vars={card.ability.extra.xmult},
+					type = "variable",
+					key = "a_xmult",
+					vars = { card.ability.extra.xmult },
 				}),
                 Xmult_mod = card.ability.extra.xmult,
             }

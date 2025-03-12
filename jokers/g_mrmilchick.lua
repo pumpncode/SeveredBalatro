@@ -1,6 +1,10 @@
 SMODS.Joker {
 	key = "mrmilchick",
-	config = { extra = { consumables = 2 } },
+	config = {
+		extra = {
+			consumables = 2,
+		},
+	},
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.consumables } }
 	end,
@@ -39,8 +43,17 @@ SMODS.Joker {
 					local consumables_to_add = math.min(card.ability.extra.consumables, empty_slots)
 					while consumables_to_add > 0 do
 						play_sound("timpani")
-						local forced_key = get_random_consumables("mrmilchick", 2)
-						local _card = create_card("Consumeables", G.consumables, nil, nil, nil, nil, forced_key.config.center_key, "blessing")
+						local forced_key = get_random_consumables("j_svrd_mrmilchick", 2)
+						local _card = create_card(
+							"Consumeables",
+							G.consumables,
+							nil,
+							nil,
+							nil,
+							nil,
+							forced_key.config.center_key,
+							"j_svrd_mrmilchick"
+						)
 						_card:add_to_deck()
 						G.consumeables:emplace(_card)
 						card:juice_up(0.3, 0.4)

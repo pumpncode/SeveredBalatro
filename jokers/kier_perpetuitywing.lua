@@ -1,6 +1,10 @@
 SMODS.Joker {
 	key = "perpetuitywing",
-	config = { extra = { mult = 4 } },
+	config = {
+		extra = {
+			mult = 4,
+		},
+	},
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.mult } }
 	end,
@@ -13,12 +17,16 @@ SMODS.Joker {
 	blueprint_compat = false,
     calculate = function(self, card, context)
 		if card.debuff then return true end
-        if context.cards_destroyed and not context.blueprint then
+        if context.cards_destroyed
+			and not context.blueprint
+		then
             for i, val in ipairs(context.glass_shattered) do
-				CopyCardToDeck(val, card, G)	
+				CopyCardToDeck(val, card, G)
             end
 			return true
-        elseif context.remove_playing_cards and not context.blueprint then
+        elseif context.remove_playing_cards
+			and not context.blueprint
+		then
             for i, val in ipairs(context.removed) do
 				CopyCardToDeck(val, card, G)
             end

@@ -1,6 +1,10 @@
 SMODS.Joker {
 	key = "glasglowblock",
-	config = { extra = { rounds = 3 } },
+	config = {
+		extra = {
+			rounds = 3,
+		},
+	},
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.rounds } }
 	end,
@@ -46,12 +50,20 @@ SMODS.Joker {
 				G.GAME.round_resets.hands = G.GAME.round_resets.hands + 1
 
 				return {
-					message = localize({ type = "variable", key = "svrd_hands_inc", vars = { 1 } }),
+					message = localize({
+						type = "variable",
+						key = "svrd_hands_inc",
+						vars = { 1 },
+					}),
 					colour = G.C.CHIPS,
 				}
 			else
 				return {
-					message = localize({ type = "variable", key = "svrd_remaining", vars = { card.ability.extra.rounds } }),
+					message = localize({
+						type = "variable",
+						key = "svrd_remaining",
+						vars = { card.ability.extra.rounds },
+					}),
 					colour = G.C.FILTER,
 				}
 			end

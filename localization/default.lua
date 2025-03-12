@@ -69,7 +69,7 @@ return {
                 }
             },
             j_svrd_macrodatarefinement = {
-                name = "Macrodata Refinement",
+                name = "MDR",
                 text = {
                     "Retriggers {X:gold,C:white}Happy{}",
                     "numbers {C:attention}#1#{} times",
@@ -79,9 +79,9 @@ return {
             j_svrd_fingertrap= {
                 name = "Fingertrap",
                 text = {
-                    "{C:attention}Straights{} can be made",
-                    "with either {C:attention}gaps{} or {C:attention}pairs{}",
-                    "{C:inactive}(eg: A,3,5,7,9 and A,A,2,2,3",
+                    "{C:attention}Straights{} can be",
+                    "made with {C:attention}pairs{}",
+                    "{C:inactive}(eg: A-A-2-2-3, 4-5-6-6-7",
                     "{C:inactive}are valid {C:attention}straights{C:inactive})",
                 }
             },
@@ -129,10 +129,9 @@ return {
                 }
             },
             j_svrd_drrickenlazlohalephd = {
-                name = "Dr. Ricken Lazlo Hale, Ph. D.",
+                name = "Dr. Ricken, PhD",
                 text = {
-                    "Each {C:attention}played card{}",
-                    "gives either",
+                    "Each {C:attention}played card{} gives either",
                     "{C:chips}+#1#{} Chips or {C:mult}-#2#{} Mult",
                 }
             },
@@ -198,11 +197,13 @@ return {
                     "{C:inactive}(4, 5, 6, 9 are {C:tarot}Scary{C:inactive})",
                 }
             },
-            j_svrd_regabhi = {
-                name = "Regabhi",
+            j_svrd_reghabi = {
+                name = "Reghabi",
                 text = {
-                    "When a {C:attention}Blind{} is selected,",
-                    "creates a {C:tarot}Reintegration{} card",
+                    "When a {C:attention}Blind{}",
+                    "is selected,",
+                    "creates a",
+                    "{C:tarot}Reintegration{} card",
                 }
             },
             j_svrd_svrdfloor = {
@@ -244,8 +245,9 @@ return {
             j_svrd_waffleparty = {
                 name = "Waffle Party",
                 text = {
-                    "Earn {C:gold}$#1#{} at end of round",
-                    "for each {C:svrd_temper}Temper{} Joker owned",
+                    "At the end of round,",
+                    "earn {C:gold}$#1#{} for each",
+                    "{X:svrd_temper,C:white}Temper{} Joker owned",
                 }
             },
             j_svrd_exportshall = {
@@ -279,7 +281,8 @@ return {
                 text = {
                     "Played cards with",
                     "{C:clubs}Club{} suit give",
-                    "{X:chips,C:white}X#1#{} Chips when scored"
+                    "{X:chips,C:white}X#1#{} Chips",
+                    "when scored"
                 }
             },
             j_svrd_frolic = {
@@ -287,7 +290,8 @@ return {
                 text = {
                     "Played cards with",
                     "{C:diamonds}Diamond{} suit give",
-                    "{X:mult,C:white}X#1#{} Mult when scored"
+                    "{X:mult,C:white}X#1#{} Mult",
+                    "when scored"
                 }
             },
             j_svrd_dread = {
@@ -301,8 +305,8 @@ return {
             j_svrd_malice = {
                 name = "Malice",
                 text = {
-                    "Retrigger cards with",
-                    "{C:spades}Spade{} suit once",
+                    "Retrigger {C:spades}Spade{}",
+                    "cards {C:attention}1{} time",
                 }
             },
         },
@@ -312,14 +316,14 @@ return {
             c_svrd_protocol = {
                 name = "Protocol",
                 text = {
-                    "Spawns a {C:black}Protocol{} Joker,",
+                    "Spawns a {X:svrd_protocol,C:white}Protocol{} Joker,",
                     "{C:red}destroys{} one random Joker",
                 }
             },
             c_svrd_orientation = {
                 name = "Orientation",
                 text = {
-                    "Spawns a {C:temper}Temper{} Joker",
+                    "Spawns a {X:svrd_temper,C:white}Temper{} Joker",
                     "at the cost of {C:gold}$#1#",
                 }
             },
